@@ -627,10 +627,10 @@
 
                 <!-- Contact Info -->
                 <div class="contact-section">
-                    <h3>Get Your Results (Optional)</h3>
+                    <h3>Share Your Contact Info (Optional)</h3>
                     <input type="text" id="name" placeholder="Your Name">
                     <input type="email" id="email" placeholder="Your Email">
-                    <p>We'll send you a detailed analysis of your results. Your information will never be shared.</p>
+                    <p>Help us understand our Relate community better. Your information will never be shared.</p>
                 </div>
 
                 <button class="submit-btn" onclick="submitQuiz()">See My Results</button>
@@ -646,6 +646,7 @@
                     <!-- Results will be inserted here -->
                 </div>
 
+                <button class="submit-btn" onclick="downloadResults()" style="margin-bottom: 16px;">Download My Results</button>
                 <button class="retake-btn" onclick="retakeQuiz()">Retake Assessment</button>
             </div>
         </div>
@@ -726,6 +727,9 @@
                 title: result.title,
                 timestamp: new Date().toISOString()
             }));
+            if (name) {
+                localStorage.setItem('quizUserName', name);
+            }
         }
 
         function submitToGoogleSheets(name, email, score, answers) {
@@ -797,6 +801,52 @@
 
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function downloadResults() {
+            const score = parseInt(document.getElementById('score-number').textContent.split('/')[0].trim());
+            const result = getResultData(score);
+            const name = localStorage.getItem('quizUserName') || 'Participant';
+            const timestamp = new Date().toLocaleString();
+
+            // Create PDF-like text content
+            const content = `
+THE MOMENTUM MULTIPLIER ASSESSMENT
+Are You Building or Stagnating?
+
+Assessment Results for: ${name}
+Date: ${timestamp}
+Score: ${score} / 30
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+YOUR RESULT: ${result.title}
+
+Status: ${result.status}
+
+${result.risk ? 'Risk Assessment: ' + result.risk + '\n\n' : ''}${result.content}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Thank you for taking the Momentum Multiplier Assessment!
+
+This assessment was provided by Zendesk Relate.
+For more information about optimizing your Zendesk instance,
+contact your Technical Account Manager or visit zendesk.com.
+
+Generated: ${timestamp}
+            `.trim();
+
+            // Create and download file
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Momentum_Assessment_Results_${score}pts.txt`;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
         }
 
         function retakeQuiz() {
