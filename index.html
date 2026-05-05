@@ -96,7 +96,7 @@
 
         .question-block {
             margin-bottom: 40px;
-            padding: 30px;
+            padding: 0;
             background: #11110D;
             border-radius: 12px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
@@ -108,9 +108,15 @@
         }
 
         .question-block legend {
-            padding: 0;
+            padding: 30px 30px 0 30px;
+            margin: 0;
             margin-bottom: 20px;
             width: 100%;
+            float: none;
+        }
+
+        .question-block .options {
+            padding: 0 30px 30px 30px;
         }
 
         .question-number {
@@ -482,8 +488,16 @@
             }
 
             .question-block {
-                padding: 24px 20px;
+                padding: 0;
                 margin-bottom: 24px;
+            }
+
+            .question-block legend {
+                padding: 24px 20px 0 20px;
+            }
+
+            .question-block .options {
+                padding: 0 20px 24px 20px;
             }
 
             .question-number {
