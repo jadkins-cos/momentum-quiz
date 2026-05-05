@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="theme-color" content="#203524">
-    <meta name="description" content="Assess whether your Zendesk infrastructure is driving CX innovation or creating operational friction. Take the Momentum Multiplier Assessment.">
-    <title>The Momentum Multiplier Assessment | Zendesk Relate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Momentum Multiplier Assessment</title>
     <style>
         * {
             margin: 0;
@@ -13,133 +11,80 @@
             box-sizing: border-box;
         }
 
-        /* Skip to content link for keyboard users */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #D1F470;
-            color: #11110D;
-            padding: 8px 16px;
-            text-decoration: none;
-            font-weight: 700;
-            z-index: 100;
-            border-radius: 0 0 4px 0;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #203524;
-            color: #FFFFFF;
+            background: linear-gradient(135deg, #03363D 0%, #0B5345 100%);
+            color: #333;
             line-height: 1.6;
-            padding: 0;
+            padding: 20px;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            background: #203524;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
         }
 
         .header {
-            background: #11110D;
+            background: linear-gradient(135deg, #03363D 0%, #0B5345 100%);
             color: white;
-            padding: 60px 40px;
+            padding: 40px 30px;
             text-align: center;
-            position: relative;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: #D1F470;
         }
 
         .header h1 {
-            font-size: 36px;
-            margin-bottom: 16px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #FFFFFF;
+            font-size: 28px;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
         .header h2 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 400;
-            margin-bottom: 24px;
-            color: #D1F470;
+            opacity: 0.9;
+            margin-bottom: 20px;
         }
 
         .header p {
-            font-size: 16px;
-            opacity: 0.9;
-            line-height: 1.6;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #FFFFFF;
+            font-size: 15px;
+            opacity: 0.85;
+            line-height: 1.5;
         }
 
         .content {
-            padding: 50px 40px;
-            background: #203524;
+            padding: 40px 30px;
         }
 
         .question-block {
-            margin-bottom: 40px;
-            padding: 30px;
-            background: #11110D;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(209, 244, 112, 0.1);
+            margin-bottom: 35px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .question-block:last-of-type {
             border-bottom: none;
         }
 
-        .question-block legend {
-            padding: 0;
-            margin-bottom: 20px;
-            width: 100%;
-        }
-
         .question-number {
             display: inline-block;
-            background: #D1F470;
-            color: #11110D;
-            padding: 6px 16px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            background: #03363D;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
         }
 
         .question-text {
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0;
-            color: #FFFFFF;
-            letter-spacing: -0.3px;
-        }
-
-        .question-text small {
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.75);
-            display: block;
-            margin-top: 8px;
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1a1a1a;
         }
 
         .options {
@@ -151,164 +96,96 @@
         .option {
             display: flex;
             align-items: flex-start;
-            padding: 18px 20px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border: 2px solid #e0e0e0;
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.2s ease;
-            background: rgba(255, 255, 255, 0.03);
-            min-height: 56px;
+            background: white;
         }
 
         .option:hover {
-            border-color: #D1F470;
-            background: rgba(209, 244, 112, 0.08);
-            box-shadow: 0 4px 12px rgba(209, 244, 112, 0.15);
+            border-color: #03363D;
+            background: #f8fffe;
             transform: translateX(4px);
         }
 
-        @media (hover: none) {
-            .option:hover {
-                transform: none;
-            }
-
-            .option:active {
-                transform: scale(0.98);
-                background: rgba(209, 244, 112, 0.12);
-            }
-        }
-
-        /* Respect reduced motion preferences */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-
-            .option:hover,
-            .submit-btn:hover,
-            .retake-btn:hover {
-                transform: none !important;
-            }
-        }
-
         .option input[type="radio"] {
-            margin-right: 14px;
-            margin-top: 2px;
+            margin-right: 12px;
+            margin-top: 3px;
             cursor: pointer;
-            accent-color: #D1F470;
-            width: 22px;
-            height: 22px;
-        }
-
-        .option input[type="radio"]:focus-visible {
-            outline: 3px solid #D1F470;
-            outline-offset: 3px;
+            accent-color: #03363D;
         }
 
         .option label {
             cursor: pointer;
             flex: 1;
-            font-size: 16px;
-            color: #FFFFFF;
-            line-height: 1.5;
+            font-size: 15px;
+            color: #333;
         }
 
         .option.selected {
-            border-color: #D1F470;
-            background: rgba(209, 244, 112, 0.12);
-            box-shadow: 0 4px 16px rgba(209, 244, 112, 0.25);
+            border-color: #03363D;
+            background: #f0f9f8;
         }
 
         .contact-section {
-            background: #11110D;
-            padding: 30px;
-            border-radius: 12px;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
             margin-bottom: 30px;
-            border: 1px solid rgba(209, 244, 112, 0.2);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
         }
 
         .contact-section h3 {
-            font-size: 18px;
-            margin-bottom: 18px;
-            color: #D1F470;
-            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
         }
 
         .contact-section input {
             width: 100%;
-            padding: 14px 16px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border: 2px solid #e0e0e0;
             border-radius: 8px;
-            font-size: 16px;
-            margin-bottom: 14px;
-            transition: all 0.2s;
-            font-family: inherit;
-            background: rgba(255, 255, 255, 0.05);
-            color: #FFFFFF;
-        }
-
-        .contact-section input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
         }
 
         .contact-section input:focus {
             outline: none;
-            border-color: #D1F470;
-            background: rgba(209, 244, 112, 0.08);
-            box-shadow: 0 0 0 3px rgba(209, 244, 112, 0.15);
-        }
-
-        .contact-section input:focus-visible {
-            outline: 3px solid #D1F470;
-            outline-offset: 2px;
+            border-color: #03363D;
         }
 
         .contact-section p {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.5;
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 20px;
-            background: #D1F470;
-            color: #11110D;
+            padding: 16px;
+            background: linear-gradient(135deg, #03363D 0%, #0B5345 100%);
+            color: white;
             border: none;
             border-radius: 10px;
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 17px;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 6px 20px rgba(209, 244, 112, 0.3);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(3, 54, 61, 0.3);
         }
 
         .submit-btn:hover {
-            background: #E5FF8A;
-            color: #11110D;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(209, 244, 112, 0.4);
-        }
-
-        .submit-btn:focus-visible {
-            outline: 3px solid #D1F470;
-            outline-offset: 4px;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(3, 54, 61, 0.4);
         }
 
         .submit-btn:disabled {
-            background: rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.4);
+            background: #ccc;
             cursor: not-allowed;
             transform: none;
-            box-shadow: none;
         }
 
         .results {
@@ -327,298 +204,149 @@
 
         .score-display {
             text-align: center;
-            padding: 50px 40px;
-            background: #11110D;
+            padding: 30px;
+            background: linear-gradient(135deg, #03363D 0%, #0B5345 100%);
             color: white;
-            margin-bottom: 40px;
-            position: relative;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        .score-display::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: #D1F470;
-            border-radius: 12px 12px 0 0;
+            border-radius: 10px;
+            margin-bottom: 30px;
         }
 
         .score-display h2 {
-            font-size: 64px;
-            margin-bottom: 12px;
-            font-weight: 700;
-            color: #D1F470;
-            text-shadow: 0 0 30px rgba(209, 244, 112, 0.3);
+            font-size: 48px;
+            margin-bottom: 10px;
         }
 
         .score-display p {
-            font-size: 18px;
+            font-size: 16px;
             opacity: 0.9;
-            color: #FFFFFF;
         }
 
         .result-card {
-            background: #11110D;
-            padding: 40px;
-            border-radius: 12px;
-            border-left: 8px solid #D1F470;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 6px solid #03363D;
         }
 
         .result-card h3 {
-            font-size: 28px;
-            margin-bottom: 12px;
-            color: #FFFFFF;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #03363D;
         }
 
         .result-card .status {
             display: inline-block;
-            padding: 8px 18px;
-            background: #D1F470;
-            color: #11110D;
-            border-radius: 6px;
+            padding: 6px 14px;
+            background: #03363D;
+            color: white;
+            border-radius: 20px;
             font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
 
         .result-card .risk {
-            font-size: 18px;
-            font-weight: 700;
-            margin: 20px 0 12px 0;
-            color: #ff6b6b;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 15px 0 10px 0;
+            color: #d9534f;
         }
 
         .result-card p {
-            margin-bottom: 18px;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 16px;
-            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.6;
         }
 
         .retake-btn {
             width: 100%;
-            padding: 16px;
-            background: transparent;
-            color: #D1F470;
-            border: 2px solid #D1F470;
+            padding: 14px;
+            background: white;
+            color: #03363D;
+            border: 2px solid #03363D;
             border-radius: 10px;
-            font-size: 17px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
-            margin-top: 24px;
+            margin-top: 20px;
             transition: all 0.2s ease;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
         }
 
         .retake-btn:hover {
-            background: #D1F470;
-            color: #11110D;
-            box-shadow: 0 4px 16px rgba(209, 244, 112, 0.3);
-        }
-
-        .retake-btn:focus-visible {
-            outline: 3px solid #D1F470;
-            outline-offset: 4px;
+            background: #03363D;
+            color: white;
         }
 
         .returning-user {
-            background: rgba(254, 235, 126, 0.1);
-            border-left: 4px solid #FEEB7E;
-            padding: 18px 20px;
-            margin-bottom: 24px;
-            border-radius: 8px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
         }
 
         .returning-user p {
             margin: 0;
-            font-size: 15px;
-            color: #FEEB7E;
-            line-height: 1.5;
+            font-size: 14px;
+            color: #856404;
         }
 
-        .returning-user strong {
-            color: #D1F470;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 0;
-            }
-
-            .container {
-                box-shadow: none;
-            }
-
-            .header {
-                padding: 40px 20px;
-            }
-
+        @media (max-width: 600px) {
             .header h1 {
-                font-size: 26px;
-                line-height: 1.2;
+                font-size: 24px;
             }
 
             .header h2 {
-                font-size: 17px;
-            }
-
-            .header p {
-                font-size: 15px;
-                line-height: 1.5;
+                font-size: 16px;
             }
 
             .content {
-                padding: 30px 20px;
-            }
-
-            .question-block {
-                padding: 24px 20px;
-                margin-bottom: 24px;
-            }
-
-            .question-number {
-                font-size: 11px;
-                padding: 5px 14px;
+                padding: 25px 20px;
             }
 
             .question-text {
-                font-size: 17px;
-                line-height: 1.4;
-                margin-bottom: 18px;
-            }
-
-            .question-text small {
-                font-size: 14px;
-                display: block;
-                margin-top: 8px;
-            }
-
-            .options {
-                gap: 14px;
-            }
-
-            .option {
-                padding: 18px 16px;
-                min-height: 60px;
-            }
-
-            .option input[type="radio"] {
-                width: 20px;
-                height: 20px;
-                margin-right: 12px;
-                flex-shrink: 0;
-            }
-
-            .option label {
-                font-size: 15px;
-                line-height: 1.5;
-            }
-
-            .contact-section {
-                padding: 24px 20px;
-            }
-
-            .contact-section h3 {
-                font-size: 17px;
-            }
-
-            .contact-section input {
-                padding: 16px;
-                font-size: 16px;
-            }
-
-            .submit-btn {
-                padding: 18px;
-                font-size: 16px;
-            }
-
-            .score-display {
-                padding: 40px 20px;
-            }
-
-            .score-display h2 {
-                font-size: 48px;
-            }
-
-            .score-display p {
-                font-size: 16px;
-            }
-
-            .result-card {
-                padding: 28px 20px;
-            }
-
-            .result-card h3 {
-                font-size: 22px;
-                line-height: 1.3;
-            }
-
-            .result-card .status {
-                font-size: 12px;
-                padding: 7px 16px;
-            }
-
-            .result-card p {
-                font-size: 15px;
-                line-height: 1.6;
-            }
-
-            .retake-btn {
-                padding: 16px;
                 font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to quiz</a>
     <div class="container">
-        <header class="header" role="banner">
+        <div class="header">
             <h1>The Momentum Multiplier Assessment</h1>
             <h2>Are You Building or Stagnating?</h2>
             <p>Welcome to Zendesk Relate. You have the vision — the question is whether your internal infrastructure can keep pace. Answer these ten short questions to determine whether your current approach is driving CX innovation or creating operational friction that could slow progress.</p>
-        </header>
+        </div>
 
-        <main class="content" id="main-content" role="main">
+        <div class="content">
             <div id="quiz-form">
                 <div id="returning-user-banner"></div>
 
                 <!-- Question 1 -->
-                <fieldset class="question-block">
-                    <legend>
-                        <span class="question-number">Question 1 of 10</span>
-                        <h3 class="question-text">Resource Bandwidth & Focus<br><small>How does your team handle Zendesk optimization alongside daily operations?</small></h3>
-                    </legend>
-                    <div class="options" role="radiogroup" aria-labelledby="q1-heading">
+                <div class="question-block">
+                    <span class="question-number">Question 1 of 10</span>
+                    <div class="question-text">Resource Bandwidth & Focus<br><small style="font-weight: 400; color: #666;">How does your team handle Zendesk optimization alongside daily operations?</small></div>
+                    <div class="options">
                         <div class="option">
-                            <input type="radio" name="q1" id="q1a" value="1" aria-label="We have a dedicated, certified admin or multiple admins with a clear roadmap.">
+                            <input type="radio" name="q1" id="q1a" value="1">
                             <label for="q1a">We have a dedicated, certified admin or multiple admins with a clear roadmap.</label>
                         </div>
                         <div class="option">
-                            <input type="radio" name="q1" id="q1b" value="2" aria-label="Our admin wears many hats; optimization happens only when things break.">
+                            <input type="radio" name="q1" id="q1b" value="2">
                             <label for="q1b">Our admin wears many hats; optimization happens only when things break.</label>
                         </div>
                         <div class="option">
-                            <input type="radio" name="q1" id="q1c" value="3" aria-label="We are currently building the plane while flying it with no dedicated admin.">
+                            <input type="radio" name="q1" id="q1c" value="3">
                             <label for="q1c">We are currently "building the plane while flying it" with no dedicated admin.</label>
                         </div>
                     </div>
-                </fieldset>
+                </div>
 
                 <!-- Question 2 -->
                 <div class="question-block">
                     <span class="question-number">Question 2 of 10</span>
-                    <div class="question-text">Integration Complexity & The "API Gap"<br><small style="font-weight: 400; color: rgba(255, 255, 255, 0.75);">What is the state of your Zendesk data connectivity (data orchestration tool that manages all other tools, CRM, ERP, proprietary tools)?</small></div>
+                    <div class="question-text">Integration Complexity & The "API Gap"<br><small style="font-weight: 400; color: #666;">What is the state of your Zendesk data connectivity (data orchestration tool that manages all other tools, CRM, ERP, proprietary tools)?</small></div>
                     <div class="options">
                         <div class="option">
                             <input type="radio" name="q2" id="q2a" value="1">
@@ -638,7 +366,7 @@
                 <!-- Question 3 -->
                 <div class="question-block">
                     <span class="question-number">Question 3 of 10</span>
-                    <div class="question-text">Compliance & Security Architecture<br><small style="font-weight: 400; color: rgba(255, 255, 255, 0.75);">How confident are you in your instance's alignment with HIPAA, GDPR, or SOC2 requirements?</small></div>
+                    <div class="question-text">Compliance & Security Architecture<br><small style="font-weight: 400; color: #666;">How confident are you in your instance's alignment with HIPAA, GDPR, or SOC2 requirements?</small></div>
                     <div class="options">
                         <div class="option">
                             <input type="radio" name="q3" id="q3a" value="1">
@@ -658,7 +386,7 @@
                 <!-- Question 4 -->
                 <div class="question-block">
                     <span class="question-number">Question 4 of 10</span>
-                    <div class="question-text">Scalability & Multi-Brand Logic<br><small style="font-weight: 400; color: rgba(255, 255, 255, 0.75);">If your volume doubled or you added three new brands tomorrow, what would happen?</small></div>
+                    <div class="question-text">Scalability & Multi-Brand Logic<br><small style="font-weight: 400; color: #666;">If your volume doubled or you added three new brands tomorrow, what would happen?</small></div>
                     <div class="options">
                         <div class="option">
                             <input type="radio" name="q4" id="q4a" value="1">
@@ -678,7 +406,7 @@
                 <!-- Question 5 -->
                 <div class="question-block">
                     <span class="question-number">Question 5 of 10</span>
-                    <div class="question-text">Speed to Value (The ROI Clock)<br><small style="font-weight: 400; color: rgba(255, 255, 255, 0.75);">How long does it typically take to move a new CX initiative from "Idea" to "Live"?</small></div>
+                    <div class="question-text">Speed to Value (The ROI Clock)<br><small style="font-weight: 400; color: #666;">How long does it typically take to move a new CX initiative from "Idea" to "Live"?</small></div>
                     <div class="options">
                         <div class="option">
                             <input type="radio" name="q5" id="q5a" value="1">
@@ -698,7 +426,7 @@
                 <!-- Question 6 -->
                 <div class="question-block">
                     <span class="question-number">Question 6 of 10</span>
-                    <div class="question-text">Advanced Reporting & Data Visibility<br><small style="font-weight: 400; color: rgba(255, 255, 255, 0.75);">Are your Explore dashboards providing actionable insights or just basic metrics?</small></div>
+                    <div class="question-text">Advanced Reporting & Data Visibility<br><small style="font-weight: 400; color: #666;">Are your Explore dashboards providing actionable insights or just basic metrics?</small></div>
                     <div class="options">
                         <div class="option">
                             <input type="radio" name="q6" id="q6a" value="1">
@@ -718,7 +446,7 @@
                 <!-- Question 7 -->
                 <div class="question-block">
                     <span class="question-number">Question 7 of 10</span>
-                    <div class="question-text">Technical Debt & Documentation<br><small style="font-weight: 400; color: rgba(255, 255, 255, 0.75);">If your current Zendesk lead left tomorrow, how long would it take to recover?</small></div>
+                    <div class="question-text">Technical Debt & Documentation<br><small style="font-weight: 400; color: #666;">If your current Zendesk lead left tomorrow, how long would it take to recover?</small></div>
                     <div class="options">
                         <div class="option">
                             <input type="radio" name="q7" id="q7a" value="1">
@@ -738,7 +466,7 @@
                 <!-- Question 8 -->
                 <div class="question-block">
                     <span class="question-number">Question 8 of 10</span>
-                    <div class="question-text">Workflow Automation (AI & Bot Strategy)<br><small style="font-weight: 400; color: rgba(255, 255, 255, 0.75);">How sophisticated is your current AI Agent deployment?</small></div>
+                    <div class="question-text">Workflow Automation (AI & Bot Strategy)<br><small style="font-weight: 400; color: #666;">How sophisticated is your current AI Agent deployment?</small></div>
                     <div class="options">
                         <div class="option">
                             <input type="radio" name="q8" id="q8a" value="1">
@@ -758,7 +486,7 @@
                 <!-- Question 9 -->
                 <div class="question-block">
                     <span class="question-number">Question 9 of 10</span>
-                    <div class="question-text">Change Management & Adoption<br><small style="font-weight: 400; color: rgba(255, 255, 255, 0.75);">How well are your agents utilizing the features you've already paid for?</small></div>
+                    <div class="question-text">Change Management & Adoption<br><small style="font-weight: 400; color: #666;">How well are your agents utilizing the features you've already paid for?</small></div>
                     <div class="options">
                         <div class="option">
                             <input type="radio" name="q9" id="q9a" value="1">
@@ -778,7 +506,7 @@
                 <!-- Question 10 -->
                 <div class="question-block">
                     <span class="question-number">Question 10 of 10</span>
-                    <div class="question-text">Strategic Vision vs. Tactical Execution<br><small style="font-weight: 400; color: rgba(255, 255, 255, 0.75);">Where does your CX leadership spend most of their time?</small></div>
+                    <div class="question-text">Strategic Vision vs. Tactical Execution<br><small style="font-weight: 400; color: #666;">Where does your CX leadership spend most of their time?</small></div>
                     <div class="options">
                         <div class="option">
                             <input type="radio" name="q10" id="q10a" value="1">
@@ -797,33 +525,28 @@
 
                 <!-- Contact Info -->
                 <div class="contact-section">
-                    <h3>Share Your Contact Info (Optional)</h3>
+                    <h3>Get Your Results (Optional)</h3>
                     <input type="text" id="name" placeholder="Your Name">
                     <input type="email" id="email" placeholder="Your Email">
-                    <p>Help us understand our Relate community better. Your information will never be shared.</p>
-                </div>
-
-                <div id="error-message" role="alert" aria-live="assertive" style="display: none; background: rgba(255, 107, 107, 0.2); border: 2px solid #ff6b6b; border-radius: 8px; padding: 16px; margin-bottom: 16px; color: #ff6b6b;">
-                    <strong>Please answer all questions before submitting.</strong>
+                    <p>We'll send you a detailed analysis of your results. Your information will never be shared.</p>
                 </div>
 
                 <button class="submit-btn" onclick="submitQuiz()">See My Results</button>
             </div>
 
-            <div id="results" class="results" aria-live="polite" aria-atomic="true">
+            <div id="results" class="results">
                 <div class="score-display">
                     <h2 id="score-number">--</h2>
                     <p>Your Momentum Score</p>
                 </div>
 
-                <div class="result-card" id="result-content" role="region" aria-label="Assessment Results">
+                <div class="result-card" id="result-content">
                     <!-- Results will be inserted here -->
                 </div>
 
-                <button class="submit-btn" onclick="downloadResults()" style="margin-bottom: 16px;">Download My Results</button>
                 <button class="retake-btn" onclick="retakeQuiz()">Retake Assessment</button>
             </div>
-        </main>
+        </div>
     </div>
 
     <script>
@@ -873,17 +596,9 @@
             }
 
             if (!allAnswered) {
-                const errorMsg = document.getElementById('error-message');
-                errorMsg.style.display = 'block';
-                errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                setTimeout(() => {
-                    errorMsg.style.display = 'none';
-                }, 5000);
+                alert('Please answer all questions before submitting.');
                 return;
             }
-
-            // Hide error message if it was showing
-            document.getElementById('error-message').style.display = 'none';
 
             // Get contact info
             const name = document.getElementById('name').value;
@@ -909,9 +624,6 @@
                 title: result.title,
                 timestamp: new Date().toISOString()
             }));
-            if (name) {
-                localStorage.setItem('quizUserName', name);
-            }
         }
 
         function submitToGoogleSheets(name, email, score, answers) {
@@ -983,52 +695,6 @@
 
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function downloadResults() {
-            const score = parseInt(document.getElementById('score-number').textContent.split('/')[0].trim());
-            const result = getResultData(score);
-            const name = localStorage.getItem('quizUserName') || 'Participant';
-            const timestamp = new Date().toLocaleString();
-
-            // Create PDF-like text content
-            const content = `
-THE MOMENTUM MULTIPLIER ASSESSMENT
-Are You Building or Stagnating?
-
-Assessment Results for: ${name}
-Date: ${timestamp}
-Score: ${score} / 30
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-YOUR RESULT: ${result.title}
-
-Status: ${result.status}
-
-${result.risk ? 'Risk Assessment: ' + result.risk + '\n\n' : ''}${result.content}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Thank you for taking the Momentum Multiplier Assessment!
-
-This assessment was provided by Zendesk Relate.
-For more information about optimizing your Zendesk instance,
-contact your Technical Account Manager or visit zendesk.com.
-
-Generated: ${timestamp}
-            `.trim();
-
-            // Create and download file
-            const blob = new Blob([content], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Momentum_Assessment_Results_${score}pts.txt`;
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(a);
         }
 
         function retakeQuiz() {
