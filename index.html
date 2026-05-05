@@ -6,6 +6,9 @@
     <meta name="theme-color" content="#203524">
     <meta name="description" content="Assess whether your Zendesk infrastructure is driving CX innovation or creating operational friction. Take the Momentum Multiplier Assessment.">
     <title>The Momentum Multiplier Assessment | Zendesk Relate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -22,7 +25,7 @@
             color: #11110D;
             padding: 8px 16px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             z-index: 100;
             border-radius: 0 0 4px 0;
         }
@@ -32,10 +35,10 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: #203524;
             color: #FFFFFF;
-            line-height: 1.6;
+            line-height: 24px;
             padding: 0;
             min-height: 100vh;
         }
@@ -67,14 +70,15 @@
 
         .header h1 {
             font-size: 36px;
+            line-height: 44px;
             margin-bottom: 16px;
             font-weight: 700;
-            letter-spacing: -0.5px;
             color: #FFFFFF;
         }
 
         .header h2 {
             font-size: 20px;
+            line-height: 28px;
             font-weight: 400;
             margin-bottom: 24px;
             color: #D1F470;
@@ -82,8 +86,8 @@
 
         .header p {
             font-size: 16px;
+            line-height: 24px;
             opacity: 0.9;
-            line-height: 1.6;
             max-width: 700px;
             margin: 0 auto;
             color: #FFFFFF;
@@ -98,7 +102,7 @@
             margin-bottom: 40px;
             padding: 0;
             background: #11110D;
-            border-radius: 12px;
+            border-radius: 8px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(209, 244, 112, 0.1);
         }
@@ -124,20 +128,20 @@
             background: #D1F470;
             color: #11110D;
             padding: 6px 16px;
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 12px;
+            line-height: 16px;
             font-weight: 700;
             margin-bottom: 16px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .question-text {
             font-size: 20px;
+            line-height: 28px;
             font-weight: 700;
             margin: 0;
             color: #FFFFFF;
-            letter-spacing: -0.3px;
         }
 
         .question-text small {
@@ -146,6 +150,7 @@
             display: block;
             margin-top: 8px;
             font-size: 16px;
+            line-height: 24px;
         }
 
         .options {
@@ -159,7 +164,7 @@
             align-items: flex-start;
             padding: 18px 20px;
             border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
             background: rgba(255, 255, 255, 0.03);
@@ -212,16 +217,16 @@
         }
 
         .option input[type="radio"]:focus-visible {
-            outline: 3px solid #D1F470;
-            outline-offset: 3px;
+            outline: none;
+            box-shadow: 0 0 0 1px #203524, 0 0 0 4px #D1F470;
         }
 
         .option label {
             cursor: pointer;
             flex: 1;
             font-size: 16px;
+            line-height: 24px;
             color: #FFFFFF;
-            line-height: 1.5;
         }
 
         .option.selected {
@@ -233,7 +238,7 @@
         .contact-section {
             background: #11110D;
             padding: 30px;
-            border-radius: 12px;
+            border-radius: 8px;
             margin-bottom: 30px;
             border: 1px solid rgba(209, 244, 112, 0.2);
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
@@ -241,6 +246,7 @@
 
         .contact-section h3 {
             font-size: 18px;
+            line-height: 28px;
             margin-bottom: 18px;
             color: #D1F470;
             font-weight: 700;
@@ -271,14 +277,14 @@
         }
 
         .contact-section input:focus-visible {
-            outline: 3px solid #D1F470;
-            outline-offset: 2px;
+            outline: none;
+            box-shadow: 0 0 0 1px #203524, 0 0 0 4px #D1F470;
         }
 
         .contact-section p {
             font-size: 14px;
+            line-height: 20px;
             color: rgba(255, 255, 255, 0.7);
-            line-height: 1.5;
         }
 
         .submit-btn {
@@ -287,13 +293,13 @@
             background: #D1F470;
             color: #11110D;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 18px;
+            line-height: 28px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 6px 20px rgba(209, 244, 112, 0.3);
-            letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
@@ -305,8 +311,8 @@
         }
 
         .submit-btn:focus-visible {
-            outline: 3px solid #D1F470;
-            outline-offset: 4px;
+            outline: none;
+            box-shadow: 0 0 0 1px #203524, 0 0 0 4px #D1F470, 0 6px 20px rgba(209, 244, 112, 0.3);
         }
 
         .submit-btn:disabled {
@@ -338,7 +344,7 @@
             color: white;
             margin-bottom: 40px;
             position: relative;
-            border-radius: 12px;
+            border-radius: 8px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
         }
 
@@ -370,17 +376,17 @@
         .result-card {
             background: #11110D;
             padding: 40px;
-            border-radius: 12px;
+            border-radius: 8px;
             border-left: 8px solid #D1F470;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
         }
 
         .result-card h3 {
             font-size: 28px;
+            line-height: 32px;
             margin-bottom: 12px;
             color: #FFFFFF;
             font-weight: 700;
-            letter-spacing: -0.5px;
         }
 
         .result-card .status {
@@ -388,12 +394,12 @@
             padding: 8px 18px;
             background: #D1F470;
             color: #11110D;
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 13px;
+            line-height: 20px;
             font-weight: 700;
             margin-bottom: 24px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .result-card .risk {
@@ -407,7 +413,7 @@
             margin-bottom: 18px;
             color: rgba(255, 255, 255, 0.9);
             font-size: 16px;
-            line-height: 1.7;
+            line-height: 24px;
         }
 
         .retake-btn {
@@ -416,13 +422,13 @@
             background: transparent;
             color: #D1F470;
             border: 2px solid #D1F470;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 17px;
+            line-height: 28px;
             font-weight: 700;
             cursor: pointer;
             margin-top: 24px;
             transition: all 0.2s ease;
-            letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
@@ -433,8 +439,8 @@
         }
 
         .retake-btn:focus-visible {
-            outline: 3px solid #D1F470;
-            outline-offset: 4px;
+            outline: none;
+            box-shadow: 0 0 0 1px #203524, 0 0 0 4px #D1F470;
         }
 
         .returning-user {
@@ -448,8 +454,8 @@
         .returning-user p {
             margin: 0;
             font-size: 15px;
+            line-height: 24px;
             color: #FEEB7E;
-            line-height: 1.5;
         }
 
         .returning-user strong {
