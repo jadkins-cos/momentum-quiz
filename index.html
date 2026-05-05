@@ -13,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #f8f9fa;
+            background: #F5F5F2;
             color: #11110D;
             line-height: 1.6;
             padding: 0;
@@ -23,8 +23,8 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background: white;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            background: #FFFFFF;
+            box-shadow: 0 4px 20px rgba(17, 17, 13, 0.1);
         }
 
         .header {
@@ -41,8 +41,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #03a84e 0%, #078551 100%);
+            height: 6px;
+            background: #D1F470;
         }
 
         .header h1 {
@@ -57,7 +57,7 @@
             font-weight: 400;
             opacity: 0.9;
             margin-bottom: 24px;
-            color: #03a84e;
+            color: #D1F470;
         }
 
         .header p {
@@ -70,12 +70,15 @@
 
         .content {
             padding: 50px 40px;
+            background: #F5F5F2;
         }
 
         .question-block {
             margin-bottom: 40px;
-            padding-bottom: 35px;
-            border-bottom: 1px solid #e8e8e8;
+            padding: 30px;
+            background: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(17, 17, 13, 0.06);
         }
 
         .question-block:last-of-type {
@@ -84,8 +87,8 @@
 
         .question-number {
             display: inline-block;
-            background: #03a84e;
-            color: white;
+            background: #D1F470;
+            color: #11110D;
             padding: 6px 16px;
             border-radius: 4px;
             font-size: 12px;
@@ -117,20 +120,20 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.15s ease;
-            background: white;
+            background: #FFFFFF;
         }
 
         .option:hover {
-            border-color: #03a84e;
-            background: #f8fff8;
-            box-shadow: 0 2px 8px rgba(3, 168, 78, 0.1);
+            border-color: #D1F470;
+            background: #FAFFF0;
+            box-shadow: 0 2px 8px rgba(209, 244, 112, 0.2);
         }
 
         .option input[type="radio"] {
             margin-right: 14px;
             margin-top: 2px;
             cursor: pointer;
-            accent-color: #03a84e;
+            accent-color: #203524;
             width: 18px;
             height: 18px;
         }
@@ -144,17 +147,18 @@
         }
 
         .option.selected {
-            border-color: #03a84e;
-            background: #f0fdf4;
-            box-shadow: 0 2px 8px rgba(3, 168, 78, 0.15);
+            border-color: #D1F470;
+            background: #FAFFF0;
+            box-shadow: 0 2px 12px rgba(209, 244, 112, 0.3);
         }
 
         .contact-section {
-            background: #f8f9fa;
+            background: #FFFFFF;
             padding: 30px;
             border-radius: 8px;
             margin-bottom: 30px;
-            border: 1px solid #e8e8e8;
+            border: 2px solid #e8e8e8;
+            box-shadow: 0 2px 8px rgba(17, 17, 13, 0.06);
         }
 
         .contact-section h3 {
@@ -173,12 +177,13 @@
             margin-bottom: 14px;
             transition: all 0.2s;
             font-family: inherit;
+            background: #FFFFFF;
         }
 
         .contact-section input:focus {
             outline: none;
-            border-color: #03a84e;
-            box-shadow: 0 0 0 3px rgba(3, 168, 78, 0.1);
+            border-color: #D1F470;
+            box-shadow: 0 0 0 3px rgba(209, 244, 112, 0.2);
         }
 
         .contact-section p {
@@ -190,26 +195,28 @@
         .submit-btn {
             width: 100%;
             padding: 18px;
-            background: #03a84e;
-            color: white;
+            background: #11110D;
+            color: #D1F470;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 18px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(3, 168, 78, 0.2);
+            box-shadow: 0 4px 12px rgba(17, 17, 13, 0.2);
             letter-spacing: 0.3px;
         }
 
         .submit-btn:hover {
-            background: #078551;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(3, 168, 78, 0.3);
+            background: #203524;
+            color: #D1F470;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(17, 17, 13, 0.3);
         }
 
         .submit-btn:disabled {
             background: #b2b2b2;
+            color: #FFFFFF;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
@@ -244,15 +251,15 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #03a84e 0%, #078551 100%);
+            height: 6px;
+            background: #D1F470;
         }
 
         .score-display h2 {
             font-size: 56px;
             margin-bottom: 12px;
             font-weight: 700;
-            color: #03a84e;
+            color: #D1F470;
         }
 
         .score-display p {
@@ -261,10 +268,11 @@
         }
 
         .result-card {
-            background: #f8f9fa;
+            background: #FFFFFF;
             padding: 40px;
             border-radius: 8px;
-            border-left: 6px solid #03a84e;
+            border-left: 6px solid #D1F470;
+            box-shadow: 0 2px 12px rgba(17, 17, 13, 0.08);
         }
 
         .result-card h3 {
@@ -278,8 +286,8 @@
         .result-card .status {
             display: inline-block;
             padding: 8px 18px;
-            background: #03a84e;
-            color: white;
+            background: #D1F470;
+            color: #11110D;
             border-radius: 4px;
             font-size: 13px;
             font-weight: 700;
@@ -305,10 +313,10 @@
         .retake-btn {
             width: 100%;
             padding: 16px;
-            background: white;
-            color: #03a84e;
-            border: 2px solid #03a84e;
-            border-radius: 6px;
+            background: #FFFFFF;
+            color: #11110D;
+            border: 2px solid #11110D;
+            border-radius: 8px;
             font-size: 17px;
             font-weight: 700;
             cursor: pointer;
@@ -318,9 +326,9 @@
         }
 
         .retake-btn:hover {
-            background: #03a84e;
-            color: white;
-            box-shadow: 0 2px 8px rgba(3, 168, 78, 0.2);
+            background: #11110D;
+            color: #D1F470;
+            box-shadow: 0 4px 12px rgba(17, 17, 13, 0.2);
         }
 
         .returning-user {
