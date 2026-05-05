@@ -100,7 +100,7 @@
 
         .question-block {
             margin-bottom: 40px;
-            padding: 0;
+            padding: 30px;
             background: #11110D;
             border-radius: 8px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
@@ -111,6 +111,11 @@
             border-bottom: none;
         }
 
+        /* Fieldset-specific adjustments */
+        fieldset.question-block {
+            padding: 0;
+        }
+
         .question-block legend {
             padding: 30px 30px 0 30px;
             margin: 0;
@@ -119,7 +124,7 @@
             float: none;
         }
 
-        .question-block .options {
+        fieldset.question-block .options {
             padding: 0 30px 30px 30px;
         }
 
@@ -494,15 +499,19 @@
             }
 
             .question-block {
-                padding: 0;
+                padding: 24px 20px;
                 margin-bottom: 24px;
+            }
+
+            fieldset.question-block {
+                padding: 0;
             }
 
             .question-block legend {
                 padding: 24px 20px 0 20px;
             }
 
-            .question-block .options {
+            fieldset.question-block .options {
                 padding: 0 20px 24px 20px;
             }
 
