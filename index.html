@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Momentum Multiplier Assessment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #03363D 0%, #0B5345 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #03363D 0%, #0B5345 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .header h2 {
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .header p {
+            font-size: 15px;
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .question-block {
+            margin-bottom: 35px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .question-block:last-of-type {
+            border-bottom: none;
+        }
+
+        .question-number {
+            display: inline-block;
+            background: #03363D;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+        }
+
+        .option:hover {
+            border-color: #03363D;
+            background: #f8fffe;
+            transform: translateX(4px);
+        }
+
+        .option input[type="radio"] {
+            margin-right: 12px;
+            margin-top: 3px;
+            cursor: pointer;
+            accent-color: #03363D;
+        }
+
+        .option label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .option.selected {
+            border-color: #03363D;
+            background: #f0f9f8;
+        }
+
+        .contact-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .contact-section h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .contact-section input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .contact-section input:focus {
+            outline: none;
+            border-color: #03363D;
+        }
+
+        .contact-section p {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #03363D 0%, #0B5345 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(3, 54, 61, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(3, 54, 61, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .results {
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .score-display {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #03363D 0%, #0B5345 100%);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .score-display h2 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .score-display p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .result-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 6px solid #03363D;
+        }
+
+        .result-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #03363D;
+        }
+
+        .result-card .status {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #03363D;
+            color: white;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .result-card .risk {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 15px 0 10px 0;
+            color: #d9534f;
+        }
+
+        .result-card p {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .retake-btn {
+            width: 100%;
+            padding: 14px;
+            background: white;
+            color: #03363D;
+            border: 2px solid #03363D;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .retake-btn:hover {
+            background: #03363D;
+            color: white;
+        }
+
+        .returning-user {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .returning-user p {
+            margin: 0;
+            font-size: 14px;
+            color: #856404;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .header h2 {
+                font-size: 16px;
+            }
+
+            .content {
+                padding: 25px 20px;
+            }
+
+            .question-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>The Momentum Multiplier Assessment</h1>
+            <h2>Are You Building or Stagnating?</h2>
+            <p>Welcome to Zendesk Relate. You have the vision — the question is whether your internal infrastructure can keep pace. Answer these ten short questions to determine whether your current approach is driving CX innovation or creating operational friction that could slow progress.</p>
+        </div>
+
+        <div class="content">
+            <div id="quiz-form">
+                <div id="returning-user-banner"></div>
+
+                <!-- Question 1 -->
+                <div class="question-block">
+                    <span class="question-number">Question 1 of 10</span>
+                    <div class="question-text">Resource Bandwidth & Focus<br><small style="font-weight: 400; color: #666;">How does your team handle Zendesk optimization alongside daily operations?</small></div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q1" id="q1a" value="1">
+                            <label for="q1a">We have a dedicated, certified admin or multiple admins with a clear roadmap.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q1" id="q1b" value="2">
+                            <label for="q1b">Our admin wears many hats; optimization happens only when things break.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q1" id="q1c" value="3">
+                            <label for="q1c">We are currently "building the plane while flying it" with no dedicated admin.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question-block">
+                    <span class="question-number">Question 2 of 10</span>
+                    <div class="question-text">Integration Complexity & The "API Gap"<br><small style="font-weight: 400; color: #666;">What is the state of your Zendesk data connectivity (data orchestration tool that manages all other tools, CRM, ERP, proprietary tools)?</small></div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q2" id="q2a" value="1">
+                            <label for="q2a">Out-of-the-box marketplace apps satisfy 90% of our needs.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q2" id="q2b" value="2">
+                            <label for="q2b">We need custom middleware or basic API work but haven't started yet.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q2" id="q2c" value="3">
+                            <label for="q2c">We require complex, multi-directional syncs to maintain a "Single View of the Customer."</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question-block">
+                    <span class="question-number">Question 3 of 10</span>
+                    <div class="question-text">Compliance & Security Architecture<br><small style="font-weight: 400; color: #666;">How confident are you in your instance's alignment with HIPAA, GDPR, or SOC2 requirements?</small></div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q3" id="q3a" value="1">
+                            <label for="q3a">Our setup is fully audited and managed by internal security experts.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q3" id="q3b" value="2">
+                            <label for="q3b">We have the features enabled but aren't 100% sure the workflows are compliant.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q3" id="q3c" value="3">
+                            <label for="q3c">We handle sensitive data and are concerned that "DIY" configurations pose a liability.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question-block">
+                    <span class="question-number">Question 4 of 10</span>
+                    <div class="question-text">Scalability & Multi-Brand Logic<br><small style="font-weight: 400; color: #666;">If your volume doubled or you added three new brands tomorrow, what would happen?</small></div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q4" id="q4a" value="1">
+                            <label for="q4a">Our triggers and automations are modular and built for scale.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q4" id="q4b" value="2">
+                            <label for="q4b">It would require significant manual rework and likely break several workflows.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q4" id="q4c" value="3">
+                            <label for="q4c">We are currently struggling with "Spaghetti Logic" (overlapping triggers and messy routing).</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question-block">
+                    <span class="question-number">Question 5 of 10</span>
+                    <div class="question-text">Speed to Value (The ROI Clock)<br><small style="font-weight: 400; color: #666;">How long does it typically take to move a new CX initiative from "Idea" to "Live"?</small></div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q5" id="q5a" value="1">
+                            <label for="q5a">Under 2 weeks.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q5" id="q5b" value="2">
+                            <label for="q5b">1 to 3 months, depending on other IT priorities.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q5" id="q5c" value="3">
+                            <label for="q5c">We have a running backlog of initiatives that have been waiting over 6 months to start — and new items keep getting added.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="question-block">
+                    <span class="question-number">Question 6 of 10</span>
+                    <div class="question-text">Advanced Reporting & Data Visibility<br><small style="font-weight: 400; color: #666;">Are your Explore dashboards providing actionable insights or just basic metrics?</small></div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q6" id="q6a" value="1">
+                            <label for="q6a">We use data to predict staffing needs and customer churn.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q6" id="q6b" value="2">
+                            <label for="q6b">We have basic reports, but we struggle to calculate the true "Cost per Ticket."</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q6" id="q6c" value="3">
+                            <label for="q6c">We don't trust our data; manual exports to Excel are still our primary method.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question-block">
+                    <span class="question-number">Question 7 of 10</span>
+                    <div class="question-text">Technical Debt & Documentation<br><small style="font-weight: 400; color: #666;">If your current Zendesk lead left tomorrow, how long would it take to recover?</small></div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q7" id="q7a" value="1">
+                            <label for="q7a">Minimal impact; we have comprehensive documentation, clear ownership, and a well-maintained configuration baseline.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q7" id="q7b" value="2">
+                            <label for="q7b">It would be a struggle — critical configuration logic exists only in one or two people's heads, with little to no documentation.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q7" id="q7c" value="3">
+                            <label for="q7c">Total blackout; we have no idea how the back-end logic was originally constructed.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="question-block">
+                    <span class="question-number">Question 8 of 10</span>
+                    <div class="question-text">Workflow Automation (AI & Bot Strategy)<br><small style="font-weight: 400; color: #666;">How sophisticated is your current AI Agent deployment?</small></div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q8" id="q8a" value="1">
+                            <label for="q8a">We have a high-performing AI agent handling meaningful deflection, with intent-based routing that directs complex issues to the right human agents.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q8" id="q8b" value="2">
+                            <label for="q8b">We have a basic bot, but it's annoying customers more than helping them.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q8" id="q8c" value="3">
+                            <label for="q8c">We want to use AI to handle more customer requests autonomously, but we don't know where to start — and we're concerned about getting it wrong and damaging the customer experience.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="question-block">
+                    <span class="question-number">Question 9 of 10</span>
+                    <div class="question-text">Change Management & Adoption<br><small style="font-weight: 400; color: #666;">How well are your agents utilizing the features you've already paid for?</small></div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q9" id="q9a" value="1">
+                            <label for="q9a">90%+ adoption; our agents love the workspace efficiency.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q9" id="q9b" value="2">
+                            <label for="q9b">Medium-to-low adoption — many agents use workarounds, external notes, or agents feel like the tools slow them down.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q9" id="q9c" value="3">
+                            <label for="q9c">We don't know how well our agents utilize features.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="question-block">
+                    <span class="question-number">Question 10 of 10</span>
+                    <div class="question-text">Strategic Vision vs. Tactical Execution<br><small style="font-weight: 400; color: #666;">Where does your CX leadership spend most of their time?</small></div>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" name="q10" id="q10a" value="1">
+                            <label for="q10a">Designing the future of the customer experience.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q10" id="q10b" value="2">
+                            <label for="q10b">Managing the friction between different departments' requests.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" name="q10" id="q10c" value="3">
+                            <label for="q10c">Putting out fires and fixing broken triggers.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-section">
+                    <h3>Get Your Results (Optional)</h3>
+                    <input type="text" id="name" placeholder="Your Name">
+                    <input type="email" id="email" placeholder="Your Email">
+                    <p>We'll send you a detailed analysis of your results. Your information will never be shared.</p>
+                </div>
+
+                <button class="submit-btn" onclick="submitQuiz()">See My Results</button>
+            </div>
+
+            <div id="results" class="results">
+                <div class="score-display">
+                    <h2 id="score-number">--</h2>
+                    <p>Your Momentum Score</p>
+                </div>
+
+                <div class="result-card" id="result-content">
+                    <!-- Results will be inserted here -->
+                </div>
+
+                <button class="retake-btn" onclick="retakeQuiz()">Retake Assessment</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check for returning user
+        window.onload = function() {
+            const savedResult = localStorage.getItem('momentumQuizResult');
+            if (savedResult) {
+                const result = JSON.parse(savedResult);
+                const banner = document.getElementById('returning-user-banner');
+                banner.innerHTML = `
+                    <div class="returning-user">
+                        <p><strong>Welcome back!</strong> Your previous result: ${result.title} (${result.score} points). Feel free to retake the assessment below.</p>
+                    </div>
+                `;
+            }
+        };
+
+        // Add visual feedback for radio selection
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                radio.checked = true;
+
+                // Remove selected class from siblings
+                const name = radio.name;
+                document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+                    r.closest('.option').classList.remove('selected');
+                });
+
+                // Add selected class to this option
+                this.classList.add('selected');
+            });
+        });
+
+        function submitQuiz() {
+            // Validate all questions answered
+            let score = 0;
+            let allAnswered = true;
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!answer) {
+                    allAnswered = false;
+                    break;
+                }
+                score += parseInt(answer.value);
+            }
+
+            if (!allAnswered) {
+                alert('Please answer all questions before submitting.');
+                return;
+            }
+
+            // Get contact info
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            // Collect all answers
+            const answers = {};
+            for (let i = 1; i <= 10; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                answers[`q${i}`] = answer.value;
+            }
+
+            // Submit to Google Sheets (you'll need to set up the webhook)
+            submitToGoogleSheets(name, email, score, answers);
+
+            // Show results
+            displayResults(score);
+
+            // Save to localStorage
+            const result = getResultData(score);
+            localStorage.setItem('momentumQuizResult', JSON.stringify({
+                score: score,
+                title: result.title,
+                timestamp: new Date().toISOString()
+            }));
+        }
+
+        function submitToGoogleSheets(name, email, score, answers) {
+            // Google Apps Script Web App URL
+            const webhookUrl = 'https://script.google.com/macros/s/AKfycbwJw95vIKeWN8lcfoIMJOgskznnuhSEsI-twsdWpEXfC6mjukHv7A91lgfCvNsvQWgF9Q/exec';
+
+            const data = {
+                timestamp: new Date().toISOString(),
+                name: name,
+                email: email,
+                score: score,
+                answers: answers
+            };
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            }).catch(error => {
+                console.log('Submission logged (error expected with no-cors):', error);
+            });
+        }
+
+        function getResultData(score) {
+            if (score >= 10 && score <= 16) {
+                return {
+                    title: "The Self-Sufficient Innovator",
+                    status: "Low Need for External Services",
+                    risk: "",
+                    content: `You have a firm handle on your instance. Your risk is complacency. While you don't need a full-scale overhaul, consider a strategic optimization once a year to ensure you are leveraging the latest Zendesk releases before your competitors do.`
+                };
+            } else if (score >= 17 && score <= 24) {
+                return {
+                    title: "The \"Stalling\" Mid-Market",
+                    status: "Medium Need (Targeted Intervention)",
+                    risk: "The Risk: Delayed ROI & Opportunity Cost",
+                    content: `Your team is capable, but they are bogged down by tactical execution. You are likely leaving 30–40% of Zendesk's value on the table. Premier would bridge the "API Gap" or clean up your "Spaghetti Logic," freeing your team to focus on strategy.`
+                };
+            } else {
+                return {
+                    title: "The Critical Infrastructure Risk",
+                    status: "High Need (Immediate Professional Intervention)",
+                    risk: "The Risk: Revenue Churn & Compliance Liability",
+                    content: `Your Zendesk instance is a bottleneck, not an accelerator. Your "DIY" approach is creating technical debt that will eventually lead to a "system collapse" during a scale event. Partnering with Premier isn't a luxury for you—it is a risk-mitigation strategy to protect your customer base and ensure your data remains secure and compliant.`
+                };
+            }
+        }
+
+        function displayResults(score) {
+            const result = getResultData(score);
+
+            document.getElementById('score-number').textContent = score + ' / 30';
+
+            let riskHtml = result.risk ? `<p class="risk">${result.risk}</p>` : '';
+
+            document.getElementById('result-content').innerHTML = `
+                <h3>${result.title}</h3>
+                <span class="status">${result.status}</span>
+                ${riskHtml}
+                <p>${result.content}</p>
+            `;
+
+            // Hide quiz, show results
+            document.getElementById('quiz-form').style.display = 'none';
+            document.getElementById('results').classList.add('show');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function retakeQuiz() {
+            // Clear selections
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.checked = false;
+            });
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('selected');
+            });
+
+            // Clear contact info
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+
+            // Show quiz, hide results
+            document.getElementById('quiz-form').style.display = 'block';
+            document.getElementById('results').classList.remove('show');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
